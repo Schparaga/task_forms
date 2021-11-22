@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Technical task</title>
+        <link rel="stylesheet" href="{% static 'vallox_form/css/main.css' %}">
+	</head>
+	<body>
+        {# Comment this cycle later #}        
+        {% if task %}        
+            {% for el in task %}
+                <div>
+                    <h3>{{ el.customer_surname }} {{ el.customer_name }}</h3>
+                    <p>Phone: {{ el.customer_phone }}</p>
+                    <p>email: {{ el.customer_email }}</p>
+                    <a href="{% url 'task-detail' el.id %}"><button>View the task</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>You don't have any task</p>
+        {% endif %}
+	</body>
+</html>

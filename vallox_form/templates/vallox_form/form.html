@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Technical task</title>
+        <link rel="stylesheet" href="{% static 'vallox_form/css/main.css' %}">
+	</head>
+	<body>
+        <form method="post">
+            {% csrf_token %}
+		    <p>Date</p>
+            <p>Name {{ form.customer_name }} Surname {{ form.customer_surname }}</p>
+            <p>Phone {{ form.customer_phone }}</p>
+            <p>Email {{ form.customer_email }}</p>
+            <p>Category {{ form.category }}</p>
+            <p>Your wishes {{ form.body }}</p>
+            <button type="submit">Submit</button>
+<!--
+            {% for message in messages %}
+                <p style="color: green">{{ message }}</p>
+            {% endfor %}
+-->
+            <span>{{ error }}</span>
+        </form>
+	</body>
+</html>

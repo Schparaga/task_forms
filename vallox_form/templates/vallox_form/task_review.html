@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ filled_form.customer_surname }}</title>
+        <link rel="stylesheet" href="{% static 'vallox_form/css/main.css' %}">
+	</head>
+	<body>
+        <div class="features">        
+            <h1>Technical task</h1>
+            <p>{{ filled_form.customer_name }} {{ filled_form.customer_surname }}</p>
+            <p>{{ filled_form.customer_phone }}</p>
+            <p>{{ filled_form.customer_email }}</p>
+            <p>{{ filled_form.category }}</p>
+            <p>{{ filled_form.body }}</p>
+            <a href="{% url 'task-delete' filled_form.id %}"><button>Delete</a>
+            <a href="{% url 'task-update' filled_form.id %}"><button>Update</a>
+        </div>
+        <p><a href="{% url 'task' %}">All technical tasks</a></p>
+	</body>
+</html>
